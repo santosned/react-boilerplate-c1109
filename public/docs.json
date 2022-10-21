@@ -1,0 +1,16 @@
+{
+  "docs": [
+    {
+      "link": "https://reactjs.org/docs/getting-started.html",
+      "text": "ReactJS"
+    },
+    {
+      "link": "https://reactrouter.com/en/main",
+      "text": "React Router"
+    },
+    {
+      "link": "https://vitejs.dev/config/",
+      "text": "ViteJS"
+    }
+  ]
+}

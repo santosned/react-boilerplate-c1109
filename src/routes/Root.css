@@ -1,0 +1,88 @@
+#root {
+  width: 100%;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(160deg) scale(1.2);
+  }
+  to {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a .logo {
+    animation: logo-spin infinite 8s linear;
+  }
+}
+
+.card {
+  background-color: #213547;
+  padding: 2rem;
+  border-radius: 1.2rem;
+  padding: 13px;
+  max-width: 920px;
+  width: calc(90vw - 24px);
+}
+
+code#deps {
+  font-family: Consolas, 'courier new';
+  color: white;
+  background-color: transparent;
+  font-size: 1.2rem;
+}
+
+main {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  min-height: calc(100vh - 120px);
+  padding: 20px 0px;
+}
+
+main h1 {
+  font-size: xx-large;
+  text-align: center;
+}
+
+main p {
+  font-size: large;
+  text-align: center;
+}
+
+footer {
+  display: flex;
+  height: 60px;
+  justify-content: center;
+}
+
+nav {
+  display: flex;
+  position: relative;
+  gap: 20px;
+}
+
+nav a {
+  height: fit-content;
+  color: #213547;
+}
+nav a:hover {
+  color: #384d61;
+}
