@@ -1,33 +1,33 @@
+import { useQuery } from '@tanstack/react-query'
 import React from 'react'
-import reactLogo from '~/assets/react.svg'
+import ReactLogo from '~/components/ReactLogo'
 import { APP_PAGE_NAME } from '.'
 
 const Home: React.FC = () => {
+  const { status, data, error } = useQuery(
+    ['deps'],
+    async () => await fetch('/deps.json').then(async res => await res.json())
+  )
+
   React.useEffect(() => {
     document.title = APP_PAGE_NAME
   }, [])
 
+  if (status === 'loading') {
+    return <ReactLogo />
+  }
+
+  if (status === 'error') {
+    console.log(error)
+    return <></>
+  }
+
   return (
     <>
-      <div>
-        <a href="https://reactjs.org" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
+      <ReactLogo />
       <h1>React Boilerplate</h1>
       <div className="card">
-        <code id="deps">
-          {JSON.stringify(
-            {
-              'react': '^18.2.0',
-              'react-router-dom': '^6.4.2',
-              'typescript': '^4.6.4',
-              'vite': '^3.1.0',
-            },
-            null,
-            2
-          )}
-        </code>
+        <code id="deps">{JSON.stringify(data.deps, null, 2)}</code>
       </div>
     </>
   )
