@@ -2,7 +2,7 @@ import React from 'react'
 import { APP_PAGE_NAME } from '.'
 import './Docs.css'
 
-type DocsData = { link: string; text: string }[]
+type DocsData = Array<{ link: string; text: string }>
 
 const Docs: React.FC = () => {
   const [docs, setDocs] = React.useState<DocsData>([])
@@ -12,9 +12,9 @@ const Docs: React.FC = () => {
   }, [])
 
   React.useEffect(() => {
-    if (!docs.length) {
+    if (docs.length === 0) {
       fetch('/docs.json')
-        .then(res => res.json())
+        .then(async res => await res.json())
         .then(data => setDocs(data.docs))
         .catch(err => {
           console.log(err)

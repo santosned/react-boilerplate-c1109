@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouteError, useNavigate } from 'react-router-dom'
 import './Error.css'
 
-type ErrorType = {
+interface ErrorType {
   data: any
   status: number
   statusText: string
@@ -19,8 +19,12 @@ const Error: React.FC = () => {
   return (
     <>
       <main>
-        <code>Error {error?.status && error?.status}</code>
-        <h1>{error?.statusText && error?.statusText}</h1>
+        <code>
+          Error {Object.hasOwnProperty.call(error, 'status') && error?.status}
+        </code>
+        <h1>
+          {Object.hasOwnProperty.call(error, 'statusText') && error?.statusText}
+        </h1>
         <p>Sorry, it seems an error has occurred.</p>
       </main>
       <footer>

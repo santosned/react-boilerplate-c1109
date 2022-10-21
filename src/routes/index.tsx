@@ -13,8 +13,8 @@ export const APP_PAGE_NAME = 'React Boilerplate'
  * 1. Except for the Root & Error components, lazy load everything when needed.
  * 2. You can quickly check the perf metrics with chromium dev tools.
  */
-const Home = React.lazy(() => import('./Home'))
-const Docs = React.lazy(() => import('./Docs'))
+const Home = React.lazy(async () => await import('./Home'))
+const Docs = React.lazy(async () => await import('./Docs'))
 
 export const router = createBrowserRouter([
   {
