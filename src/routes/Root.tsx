@@ -1,11 +1,14 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import './Root.css'
 
+const queryClient = new QueryClient()
+
 const Root: React.FC = () => {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <main>
         <Outlet />
       </main>
@@ -21,7 +24,7 @@ const Root: React.FC = () => {
           </Link>
         </nav>
       </footer>
-    </>
+    </QueryClientProvider>
   )
 }
 
